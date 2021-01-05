@@ -1,9 +1,8 @@
-package handler
+package route_handler
 
 import (
 	"context"
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"cloud.google.com/go/firestore"
@@ -70,7 +69,7 @@ func (h *Handler) getBeans(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 		if err != nil {
-			log.Fatalf("Failed to iterate: %v", err)
+			h.logger.Fatalf("Failed to iterate: %v", err)
 		}
 
 		var b Bean

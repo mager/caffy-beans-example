@@ -8,8 +8,8 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/mager/caffy-beans-example/config"
 	"github.com/mager/caffy-beans-example/database"
-	"github.com/mager/caffy-beans-example/handler"
 	"github.com/mager/caffy-beans-example/logger"
+	handler "github.com/mager/caffy-beans-example/route_handler"
 	"github.com/mager/caffy-beans-example/router"
 	"go.uber.org/fx"
 	"go.uber.org/zap"
@@ -17,11 +17,11 @@ import (
 
 func main() {
 	fx.New(
-		fx.Options(
-			config.Module,
-			database.Module,
-			logger.Module,
-			router.Module,
+		fx.Provide(
+			config.Options,
+			database.Options,
+			logger.Options,
+			router.Options,
 		),
 		fx.Invoke(Register),
 	).Run()

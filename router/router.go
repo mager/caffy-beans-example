@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"go.uber.org/fx"
 )
 
 // ProvideRouter provides a gorilla mux router
@@ -21,5 +20,4 @@ func jsonMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// Module provided to fx
-var Module = fx.Provide(ProvideRouter)
+var Options = ProvideRouter

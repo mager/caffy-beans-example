@@ -3,7 +3,6 @@ package config
 import (
 	"io/ioutil"
 
-	"go.uber.org/fx"
 	"gopkg.in/yaml.v2"
 )
 
@@ -30,4 +29,4 @@ func ProvideConfig() *Config {
 	return &conf
 }
 
-var Module = fx.Provide(ProvideConfig)
+var Options = ProvideConfig

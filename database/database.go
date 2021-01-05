@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"cloud.google.com/go/firestore"
-	"go.uber.org/fx"
 )
 
 // ProvideDB provides a firestore client
@@ -19,4 +18,4 @@ func ProvideDB() *firestore.Client {
 	return client
 }
 
-var Module = fx.Provide(ProvideDB)
+var Options = ProvideDB
